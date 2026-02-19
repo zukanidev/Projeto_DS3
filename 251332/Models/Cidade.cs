@@ -82,8 +82,26 @@ namespace _251332.Models
         }
 
 
+        public void Excluir()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+                Banco.Comando = new MySql.Data.MySqlClient.MySqlCommand("DELETE FROM CIDADES " +
+                                                                        "WHERE ID = @ID", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@ID", id);
+                Banco.Comando.ExecuteNonQuery();
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
 
     }
-
     
 }

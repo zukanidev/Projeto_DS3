@@ -88,5 +88,35 @@ namespace _251332.Views
             limpaControles();
             carregarGrid("");
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (Text == String.Empty) return;
+
+            if (MessageBox.Show("Deseja excluir a cidade?", "Exclusão",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                c = new Cidade()
+                {
+                    id = int.Parse(txtID.Text)
+                };
+
+                c.Excluir();
+                
+                limpaControles();
+                carregarGrid("");
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaControles();
+            carregarGrid("");
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            carregarGrid(txtPesquisa.Text);
+        }
     }
 }
