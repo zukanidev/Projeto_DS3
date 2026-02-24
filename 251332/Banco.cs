@@ -86,6 +86,24 @@ namespace _251332
 
                 FecharConexao();
 
+                Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS CATEGORIAS" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "CATEGORIA CHAR(20)) ", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS CLIENTES" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "NOME CHAR(40), " +
+                                            "ID CIDADE INTEGER, " +
+                                            "DATANASC DATE," +
+                                            "RENDA DECIMAL (10,2)," +
+                                            "CPF CHAR (14)," +
+                                            "FOTO VARCHAR(100)," +
+                                            "VENDA BOOLEAN)", Conexao);
+
+                Comando.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
@@ -94,5 +112,7 @@ namespace _251332
 
 
         }
+
+
     }
 }
