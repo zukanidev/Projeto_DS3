@@ -34,5 +34,11 @@ namespace _251332
             frmUsuarios formUsuarios = new frmUsuarios();
             formUsuarios.Show();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmClientes formClientes = new frmClientes();
+            formClientes.Show();
+        }
     }
 }

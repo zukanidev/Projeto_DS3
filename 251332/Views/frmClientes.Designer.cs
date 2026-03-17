@@ -46,14 +46,15 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtUF = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.picFoto = new System.Windows.Forms.PictureBox();
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
+            this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
@@ -107,6 +108,7 @@
             this.cboCidades.Name = "cboCidades";
             this.cboCidades.Size = new System.Drawing.Size(491, 24);
             this.cboCidades.TabIndex = 5;
+            this.cboCidades.SelectedIndexChanged += new System.EventHandler(this.cboCidades_SelectedIndexChanged);
             // 
             // chkVenda
             // 
@@ -171,6 +173,7 @@
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnAlterar
             // 
@@ -232,6 +235,15 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(244, 16);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Digite o nome do cliente para pesquisa:";
+            // 
             // btnConsultar
             // 
             this.btnConsultar.Image = global::_251332.Properties.Resources._1_pesquisar;
@@ -258,15 +270,6 @@
             this.dgvClientes.Size = new System.Drawing.Size(741, 150);
             this.dgvClientes.TabIndex = 0;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(38, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(244, 16);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Digite o nome do cliente para pesquisa:";
-            // 
             // txtUF
             // 
             this.txtUF.Location = new System.Drawing.Point(539, 164);
@@ -287,9 +290,11 @@
             // 
             this.picFoto.Location = new System.Drawing.Point(606, 3);
             this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(182, 194);
+            this.picFoto.Size = new System.Drawing.Size(188, 194);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFoto.TabIndex = 7;
             this.picFoto.TabStop = false;
+            this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
             // 
             // mskCPF
             // 
@@ -298,6 +303,10 @@
             this.mskCPF.Name = "mskCPF";
             this.mskCPF.Size = new System.Drawing.Size(139, 22);
             this.mskCPF.TabIndex = 24;
+            // 
+            // ofdArquivo
+            // 
+            this.ofdArquivo.FileName = "ofdArquivo";
             // 
             // frmClientes
             // 
@@ -328,6 +337,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmClientes";
             this.Text = "frmClientes";
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -365,5 +375,6 @@
         private System.Windows.Forms.TextBox txtUF;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox mskCPF;
+        private System.Windows.Forms.OpenFileDialog ofdArquivo;
     }
 }

@@ -48,7 +48,7 @@ namespace _251332
                 AbrirConexao();
 
 
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS_191125;USE VENDAS_191125", Conexao);
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS;USE VENDAS", Conexao);
 
                 Comando.ExecuteNonQuery();
 
@@ -72,7 +72,7 @@ namespace _251332
                 AbrirConexao();
 
 
-                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS_191125;USE VENDAS_191125", Conexao);
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS;USE VENDAS", Conexao);
 
                 Comando.ExecuteNonQuery();
 
@@ -84,18 +84,16 @@ namespace _251332
                                             "FUNCAO VARCHAR(50)) ", Conexao);
                 Comando.ExecuteNonQuery();
 
-                FecharConexao();
-
                 Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS CATEGORIAS" +
                                             "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
-                                            "CATEGORIA CHAR(20)) ", Conexao);
+                                            "CATEGORIA CHAR(20))", Conexao);
 
                 Comando.ExecuteNonQuery();
 
                 Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS CLIENTES" +
                                             "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
                                             "NOME CHAR(40), " +
-                                            "ID CIDADE INTEGER, " +
+                                            "IDCIDADE INTEGER, " +
                                             "DATANASC DATE," +
                                             "RENDA DECIMAL (10,2)," +
                                             "CPF CHAR (14)," +
@@ -103,6 +101,8 @@ namespace _251332
                                             "VENDA BOOLEAN)", Conexao);
 
                 Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
 
             }
             catch (Exception ex)

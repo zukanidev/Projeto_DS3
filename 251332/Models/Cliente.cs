@@ -13,7 +13,6 @@ namespace _251332.Models
     {
         public int id { get; set; }
         public string nome { get; set; }
-
         public int idCidade { get; set; }
         public DateTime dataNasc { get; set; }
         public double renda { get; set; }

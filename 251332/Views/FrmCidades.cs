@@ -14,6 +14,7 @@ namespace _251332.Views
     public partial class FrmCidades : Form
     {
         Cidade c;
+
         public FrmCidades()
         {
             InitializeComponent();

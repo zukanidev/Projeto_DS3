@@ -14,10 +14,18 @@ namespace _251332.Views
     public partial class frmClientes : Form
     {
         Cidade ci;
-        Cliente Cl;
+        Cliente cl;
 
-        void limpaControles()
+        void carregarGrid(string pesquisa)
+        {
+            cl = new Cliente()
             {
+                nome = pesquisa 
+            };
+            dgvClientes.DataSource = cl.Consultar();
+        }
+        void limpaControles()
+        {
             txtID.Clear();
             txtNome.Clear();
             cboCidades.SelectedIndex = -1;
@@ -33,6 +41,57 @@ namespace _251332.Views
             InitializeComponent();
         }
 
-  
+        private void frmClientes_Load(object sender, EventArgs e)
+        {
+            ci = new Cidade();
+            cboCidades.DataSource = ci.Consultar();
+            cboCidades.DisplayMember = "nome";
+            cboCidades.ValueMember = "id";
+
+            limpaControles();
+            carregarGrid("");
+
+            dgvClientes.Columns["idCidade"].Visible = false;
+            dgvClientes.Columns["foto"].Visible = false;
+        }
+
+        private void cboCidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCidades.SelectedIndex != -1)
+            {
+                DataRowView reg = (DataRowView)cboCidades.SelectedItem;
+                txtUF.Text = reg["uf"].ToString();
+            }
+        }
+
+        private void picFoto_Click(object sender, EventArgs e)
+        {
+            ofdArquivo.InitialDirectory = "C:/ETEC/fotos/clientes/";
+            ofdArquivo.FileName = "";
+            ofdArquivo.ShowDialog();
+            picFoto.ImageLocation = ofdArquivo.FileName;
+        }
+
+        private void btnIncluir_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == "") return;
+
+            cl = new Cliente()
+            {
+                nome = txtNome.Text,
+                idCidade = (int)cboCidades.SelectedValue,
+                dataNasc = dtpDataNasc.Value,
+                renda = double.Parse(txtRenda.Text),
+                cpf = mskCPF.Text,
+                foto = picFoto.ImageLocation,
+                venda = chkVenda.Checked
+            };
+
+            cl.Incluir();
+
+            limpaControles();
+            carregarGrid("");
+
+        }
     }
 }
