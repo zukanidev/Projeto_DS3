@@ -110,6 +110,57 @@ namespace _251332
                 MessageBox.Show("Erro ao criar o banco de dados ou a tabela: " + ex.Message);
             }
 
+            try
+            {
+                AbrirConexao();
+
+
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS;USE VENDAS", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDA_CAB" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "ID_CLIENTE INT, " +
+                                            "DATA DATE," +
+                                            "TOTAL DECIMAL(10,2))", Conexao);
+                Comando.ExecuteNonQuery();
+
+                FecharConexao();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao criar o banco de dados ou a tabela: " + ex.Message);
+            }
+
+            try
+            {
+                AbrirConexao();
+
+
+                Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS VENDAS;USE VENDAS", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDA_DET" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "ID_VENDA INT, " +
+                                            "ID_PRODUTO INT," +
+                                            "QTD DECIMAL(10,3)," +
+                                            "VLR_INIT DECIMAL(10,2))", Conexao);
+                Comando.ExecuteNonQuery();
+
+                FecharConexao();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao criar o banco de dados ou a tabela: " + ex.Message);
+            }
+
+
+
 
         }
 
