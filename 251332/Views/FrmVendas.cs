@@ -7,14 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _251332.Models;
 
 namespace _251332.Views
 {
     public partial class FrmVendas : Form
     {
+        double total;
+
+        Cliente c;
+        //Produto p;
+        VendaCab vc;
+        VendaDet vd;
         public FrmVendas()
         {
             InitializeComponent();
         }
+     void limpaProduto()
+        {
+            cboProdutos.SelectedIndex = -1;
+            txtEstoque.Clear();
+            txtPreco.Clear();
+            txtQuantidade.Clear();
+            //txtMarca.Clear();
+            //txtCategoria.Clear();
+            picProdutos.ImageLocation = "";
+        }
+    
+
+
+
+
     }
 }

@@ -102,6 +102,16 @@ namespace _251332
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS PRODUTOS" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "DESCRICAO CHAR(40), " +
+                                            "IDCATEGORIA INTEGER," +
+                                            "IDMARCA INTEGER," +
+                                            "ESTOQUE DECIMAL(10, 2)," +
+                                            "VALORVENDA DECIMAL(10,2)," +
+                                            "FOTO VARCHAR(100))", Conexao);
+                Comando.ExecuteNonQuery();
+
                 Banco.FecharConexao();
 
             }
