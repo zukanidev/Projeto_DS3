@@ -29,14 +29,27 @@ namespace _251332.Views
             txtEstoque.Clear();
             txtPreco.Clear();
             txtQuantidade.Clear();
-            //txtMarca.Clear();
-            //txtCategoria.Clear();
+            txtMarca.Clear();
+            txtCategoria.Clear();
             picProdutos.ImageLocation = "";
         }
-    
 
-
-
-
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            dgvProdutos.RowCount = 0;
+            cboClientes.SelectedIndex = -1;
+            txtCidade.Clear();
+            txtUF.Clear();
+            txtRenda.Clear();
+            mskCPF.Clear();
+            mskDataNascimento.Clear();
+            chkVenda.Checked = false;
+            picCliente.ImageLocation = "";
+            total = 0;
+            lblTotal.Text = total.ToString("C");
+            grbClientes.Enabled = true;
+            grbProdutos.Enabled = false;
+            limpaProduto();
+        }
     }
 }
