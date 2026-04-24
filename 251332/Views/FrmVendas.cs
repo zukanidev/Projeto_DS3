@@ -16,7 +16,7 @@ namespace _251332.Views
         double total;
 
         Cliente c;
-        //Produto p;
+        Produto p;
         VendaCab vc;
         VendaDet vd;
         public FrmVendas()
@@ -50,6 +50,21 @@ namespace _251332.Views
             grbClientes.Enabled = true;
             grbProdutos.Enabled = false;
             limpaProduto();
+        }
+
+        private void FrmVendas_Load(object sender, EventArgs e)
+        {
+            c= new Cliente();
+            cboClientes.DataSource = c.Consultar();
+            cboClientes.DisplayMember = "nome";
+            cboClientes.ValueMember = "id";
+
+            p= new Produto();  
+            cboProdutos.DataSource = p.Consultar();
+            cboProdutos.DisplayMember = "descricao";
+            cboProdutos.ValueMember = "id";
+
+            btnCancelar.PerformClick();
         }
     }
 }
