@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.grbClientes = new System.Windows.Forms.GroupBox();
+            this.chkVenda = new System.Windows.Forms.CheckBox();
             this.txtUF = new System.Windows.Forms.TextBox();
             this.txtRenda = new System.Windows.Forms.MaskedTextBox();
-            this.mskDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.mskDataNasc = new System.Windows.Forms.MaskedTextBox();
             this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.cboClientes = new System.Windows.Forms.ComboBox();
@@ -43,6 +44,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grbProdutos = new System.Windows.Forms.GroupBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
@@ -60,11 +65,6 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.chkVenda = new System.Windows.Forms.CheckBox();
             this.grbClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCliente)).BeginInit();
             this.grbProdutos.SuspendLayout();
@@ -77,7 +77,7 @@
             this.grbClientes.Controls.Add(this.chkVenda);
             this.grbClientes.Controls.Add(this.txtUF);
             this.grbClientes.Controls.Add(this.txtRenda);
-            this.grbClientes.Controls.Add(this.mskDataNascimento);
+            this.grbClientes.Controls.Add(this.mskDataNasc);
             this.grbClientes.Controls.Add(this.mskCPF);
             this.grbClientes.Controls.Add(this.txtCidade);
             this.grbClientes.Controls.Add(this.cboClientes);
@@ -94,6 +94,16 @@
             this.grbClientes.TabIndex = 0;
             this.grbClientes.TabStop = false;
             // 
+            // chkVenda
+            // 
+            this.chkVenda.AutoSize = true;
+            this.chkVenda.Location = new System.Drawing.Point(80, 157);
+            this.chkVenda.Name = "chkVenda";
+            this.chkVenda.Size = new System.Drawing.Size(135, 20);
+            this.chkVenda.TabIndex = 15;
+            this.chkVenda.Text = "Bloqueia a venda";
+            this.chkVenda.UseVisualStyleBackColor = true;
+            // 
             // txtUF
             // 
             this.txtUF.Location = new System.Drawing.Point(602, 75);
@@ -108,12 +118,12 @@
             this.txtRenda.Size = new System.Drawing.Size(122, 22);
             this.txtRenda.TabIndex = 13;
             // 
-            // mskDataNascimento
+            // mskDataNasc
             // 
-            this.mskDataNascimento.Location = new System.Drawing.Point(92, 117);
-            this.mskDataNascimento.Name = "mskDataNascimento";
-            this.mskDataNascimento.Size = new System.Drawing.Size(83, 22);
-            this.mskDataNascimento.TabIndex = 12;
+            this.mskDataNasc.Location = new System.Drawing.Point(92, 117);
+            this.mskDataNasc.Name = "mskDataNasc";
+            this.mskDataNasc.Size = new System.Drawing.Size(83, 22);
+            this.mskDataNasc.TabIndex = 12;
             // 
             // mskCPF
             // 
@@ -136,6 +146,7 @@
             this.cboClientes.Name = "cboClientes";
             this.cboClientes.Size = new System.Drawing.Size(583, 24);
             this.cboClientes.TabIndex = 8;
+            this.cboClientes.SelectedIndexChanged += new System.EventHandler(this.cboClientes_SelectedIndexChanged);
             // 
             // picCliente
             // 
@@ -153,6 +164,7 @@
             this.btnConfirmar.TabIndex = 6;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label12
             // 
@@ -222,6 +234,38 @@
             this.grbProdutos.TabIndex = 1;
             this.grbProdutos.TabStop = false;
             // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Location = new System.Drawing.Point(92, 77);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(583, 22);
+            this.txtCategoria.TabIndex = 17;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 16);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Categoria:";
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.Location = new System.Drawing.Point(92, 47);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(583, 22);
+            this.txtMarca.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Marca:";
+            // 
             // txtEstoque
             // 
             this.txtEstoque.Location = new System.Drawing.Point(404, 115);
@@ -250,6 +294,7 @@
             this.cboProdutos.Name = "cboProdutos";
             this.cboProdutos.Size = new System.Drawing.Size(583, 24);
             this.cboProdutos.TabIndex = 10;
+            this.cboProdutos.SelectedIndexChanged += new System.EventHandler(this.cboProdutos_SelectedIndexChanged);
             // 
             // picProdutos
             // 
@@ -267,6 +312,7 @@
             this.btnRemover.TabIndex = 8;
             this.btnRemover.Text = "Remover Produto";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnInserir
             // 
@@ -276,6 +322,7 @@
             this.btnInserir.TabIndex = 7;
             this.btnInserir.Text = "Inserir Produto";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // label8
             // 
@@ -373,48 +420,6 @@
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(92, 47);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(583, 22);
-            this.txtMarca.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Marca:";
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(92, 77);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(583, 22);
-            this.txtCategoria.TabIndex = 17;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 16);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Categoria:";
-            // 
-            // chkVenda
-            // 
-            this.chkVenda.AutoSize = true;
-            this.chkVenda.Location = new System.Drawing.Point(80, 157);
-            this.chkVenda.Name = "chkVenda";
-            this.chkVenda.Size = new System.Drawing.Size(135, 20);
-            this.chkVenda.TabIndex = 15;
-            this.chkVenda.Text = "Bloqueia a venda";
-            this.chkVenda.UseVisualStyleBackColor = true;
-            // 
             // FrmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -468,7 +473,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.MaskedTextBox txtRenda;
-        private System.Windows.Forms.MaskedTextBox mskDataNascimento;
+        private System.Windows.Forms.MaskedTextBox mskDataNasc;
         private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.ComboBox cboClientes;
