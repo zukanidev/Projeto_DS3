@@ -40,5 +40,11 @@ namespace _251332
             frmClientes formClientes = new frmClientes();
             formClientes.Show();
         }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVendas formVendas = new FrmVendas();
+            formVendas.Show();
+        }
     }
 }

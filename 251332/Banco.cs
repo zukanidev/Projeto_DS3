@@ -90,6 +90,11 @@ namespace _251332
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS MARCAS" +
+                                            "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
+                                            "MARCA CHAR(20))", Conexao);
+                Comando.ExecuteNonQuery();
+
                 Comando = new MySqlCommand(" CREATE TABLE IF NOT EXISTS CLIENTES" +
                                             "(ID INTEGER AUTO_INCREMENT PRIMARY KEY, " +
                                             "NOME CHAR(40), " +

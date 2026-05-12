@@ -146,5 +146,36 @@ namespace _251332.Views
                 dgvProdutos.Rows.RemoveAt(dgvProdutos.CurrentRow.Index);
             }
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            vc = new VendaCab()
+            {
+                idCliente = (int)cboClientes.SelectedValue,
+                data = DateTime.Now,
+                total = total
+            };
+                int idVenda = vc.Incluir();
+
+            foreach (DataGridViewRow linha in dgvProdutos.Rows)
+            {
+                vd = new VendaDet()
+                {
+                    idVendaCab = idVenda,
+                    idProduto = Convert.ToInt32(linha.Cells[0].Value),
+                    qtde = Convert.ToInt32(linha.Cells[2].Value),
+                    valorUnitario = Convert.ToDouble(linha.Cells[3].Value)
+                };
+                vd.Incluir();
+
+                p = new Produto()
+                {
+                    id = (int)linha.Cells[0].Value,
+                };
+                p.atualizarEstoque(Convert.ToDouble(linha.Cells[2].Value));
+            }
+        }
+
+
     }
 }
